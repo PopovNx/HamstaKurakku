@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <PublishAot>true</PublishAot>
+        <InvariantGlobalization>true</InvariantGlobalization>
+        <UseSystemResourceKeys>true</UseSystemResourceKeys>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <StaticallyLinked>true</StaticallyLinked>
+        <StaticOpenSslLinking>true</StaticOpenSslLinking>
+        <StaticExecutable>true</StaticExecutable>
+        <StripSymbols>true</StripSymbols>
+        <EnableLLVM>true</EnableLLVM>
+        <IlcDisableReflection>false</IlcDisableReflection>
+        <IlcEnableInlining>true</IlcEnableInlining>
+        <IlcEnableOptimizations>true</IlcEnableOptimizations>
+        <StaticallyLinkNative>true</StaticallyLinkNative>
+        <AssemblyVersion>0.0.2</AssemblyVersion>
+        <Authors>PopovNX</Authors>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Content Include="..\.dockerignore">
+        <Link>.dockerignore</Link>
+      </Content>
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0"/>
+        <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />
+        <PackageReference Include="RateLimiter" Version="2.2.0" />
+    </ItemGroup>
+</Project>
