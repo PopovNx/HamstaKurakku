@@ -1,7 +1,6 @@
 ﻿FROM mcr.microsoft.com/dotnet/sdk:8.0-alpine AS build
 RUN apk add clang binutils musl-dev build-base zlib-static
 RUN apk add cmake
-RUN apk add openssl-dev openssl-libs-static openssl
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["HamsterCrack/HamsterCrack.csproj", "HamsterCrack/"]
@@ -14,8 +13,7 @@ FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
 RUN dotnet publish "HamsterCrack.csproj" -c $BUILD_CONFIGURATION -o /app/publish -r linux-musl-x64 --no-restore
 
-FROM scratch AS final
+FROM alpine:3.18 AS final
 WORKDIR /app
 COPY --from=publish /app/publish/HamsterCrack /app
-COPY --from=publish /etc/ssl/certs/* /etc/ssl/certs/
 ENTRYPOINT ["/app/HamsterCrack"]

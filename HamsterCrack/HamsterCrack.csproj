@@ -8,17 +8,8 @@
         <PublishAot>true</PublishAot>
         <InvariantGlobalization>true</InvariantGlobalization>
         <UseSystemResourceKeys>true</UseSystemResourceKeys>
-        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-        <StaticallyLinked>true</StaticallyLinked>
-        <StaticOpenSslLinking>true</StaticOpenSslLinking>
-        <StaticExecutable>true</StaticExecutable>
         <StripSymbols>true</StripSymbols>
-        <EnableLLVM>true</EnableLLVM>
-        <IlcDisableReflection>false</IlcDisableReflection>
-        <IlcEnableInlining>true</IlcEnableInlining>
-        <IlcEnableOptimizations>true</IlcEnableOptimizations>
-        <StaticallyLinkNative>true</StaticallyLinkNative>
-        <AssemblyVersion>0.0.2</AssemblyVersion>
+        <AssemblyVersion>0.0.3</AssemblyVersion>
         <Authors>PopovNX</Authors>
     </PropertyGroup>
 
