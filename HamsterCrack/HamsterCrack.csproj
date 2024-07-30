@@ -9,7 +9,7 @@
         <InvariantGlobalization>true</InvariantGlobalization>
         <UseSystemResourceKeys>true</UseSystemResourceKeys>
         <StripSymbols>true</StripSymbols>
-        <AssemblyVersion>0.0.3</AssemblyVersion>
+        <AssemblyVersion>0.0.4</AssemblyVersion>
         <Authors>PopovNX</Authors>
     </PropertyGroup>
 

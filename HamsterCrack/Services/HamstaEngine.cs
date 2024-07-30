@@ -19,7 +19,7 @@ public sealed class HamstaEngine(HamstaApi api, ILogger<HamstaEngine> logger)
             .Where(x => x.IsAvailable)
             .Where(x => !x.IsExpired)
             .Where(x => x.Price <= (_state?.BalanceCoins ?? 0))
-            .OrderByDescending(x => x.ProfitPerHour)
+            .OrderByDescending(x => x.ProfitPerCostRate)
             .FirstOrDefault();
         if (theBest is not null)
         {
