@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace HamsterCrack.Dto;
+namespace HamsterCrack.Dto.Api.Upgrades;
 
 [Serializable]
 public sealed record UpgradeContent(

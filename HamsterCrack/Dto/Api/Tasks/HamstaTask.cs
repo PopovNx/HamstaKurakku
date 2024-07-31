@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace HamsterCrack.Dto;
+namespace HamsterCrack.Dto.Api.Tasks;
 
 public sealed record HamstaTask(
     [property: JsonPropertyName("id")] string Id,

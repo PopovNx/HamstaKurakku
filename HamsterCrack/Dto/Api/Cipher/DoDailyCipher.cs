@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace HamsterCrack.Dto;
+namespace HamsterCrack.Dto.Api.Cipher;
 
 [Serializable]
 public sealed record DoDailyCipherRequest(

@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace HamsterCrack.Dto;
+namespace HamsterCrack.Dto.Api.Boost;
 
 public sealed record BuyBoostRequest(
     [property: JsonPropertyName("boostId")]

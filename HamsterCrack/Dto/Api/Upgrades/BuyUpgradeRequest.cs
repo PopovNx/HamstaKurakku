@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace HamsterCrack.Dto;
+namespace HamsterCrack.Dto.Api.Upgrades;
 
 public sealed record BuyUpgradeRequest(
     [property: JsonPropertyName("upgradeId")]

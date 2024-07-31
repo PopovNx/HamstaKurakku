@@ -19,7 +19,7 @@ builder.Services.AddHttpClient<HamstaApi>().ConfigureHttpClient((_, client) =>
 });
 builder.Services.AddTransient<HamstaEngine>();
 builder.Services.AddHostedService<DailyCipherService>();
-builder.Services.AddHostedService<HamstaBackgroundService>();
+//builder.Services.AddHostedService<HamstaBackgroundService>();
 
 
 using var app = builder.Build();

@@ -4,25 +4,24 @@ public sealed class DailyCipherService(HamstaApi api, ILogger<DailyCipherService
 {
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        using var periodicTimer = new PeriodicTimer(TimeSpan.FromMinutes(4));
+        using var periodicTimer = new PeriodicTimer(TimeSpan.FromHours(1));
         while (!stoppingToken.IsCancellationRequested)
         {
-            await periodicTimer.WaitForNextTickAsync(stoppingToken).ConfigureAwait(false);
-            if (!Directory.Exists("cipher"))
+            var cipherStatus = await api.FetchConfigAsync(stoppingToken);
+            if (cipherStatus is null)
+            {
                 continue;
-            var files = Directory.GetFiles("cipher", "*");
-            await ApplyCiphers(files, stoppingToken);
-        }
-    }
+            }
 
-    private async Task ApplyCiphers(string[] files, CancellationToken stoppingToken)
-    {
-        foreach (var file in files)
-        {
-            var name = Path.GetFileName(file);
-            logger.LogInformation("Sending cipher: {cipher}", name);
-            File.Delete(file);
-            await api.DoDailyCipherAsync(name, stoppingToken);
+            if (cipherStatus.IsClaimed)
+            {
+                logger.LogInformation("Daily cipher already claimed");
+                await periodicTimer.WaitForNextTickAsync(stoppingToken).ConfigureAwait(false);
+                continue;
+            }
+            logger.LogInformation("Claiming daily cipher");
+            await api.DoDailyCipherAsync(cipherStatus.DecodedCipher, stoppingToken);
+            logger.LogInformation("Daily cipher claimed {cipher}", cipherStatus.DecodedCipher);
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace HamsterCrack.Dto;
+namespace HamsterCrack.Dto.Api.Tap;
 
 public sealed record TapResponse(
     [property: JsonPropertyName("clickerUser")]

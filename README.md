@@ -39,9 +39,8 @@ You can run the application using Docker. This is the recommended method as it e
 1. **Run with Docker**:
    ```sh
    docker run --rm -e HAMSTER_TOKEN=your_hamster_token \
-   -v ./ciphers:/app/cipher popovnx/bednihomyachok:0.0.4
+   popovnx/bednihomyachok:0.0.5
    ```
-   Replace `your_hamster_token` with your actual token and ensure the `ciphers` directory exists and contains the cipher files.
 
 ### Configuration
 

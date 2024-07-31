@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace HamsterCrack.Dto;
+namespace HamsterCrack.Dto.Api.Tap;
 
 public sealed record TapRequest(
     [property: JsonPropertyName("count")] int Count,
