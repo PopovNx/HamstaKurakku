@@ -10,4 +10,5 @@ public sealed record HamstaState
     [JsonPropertyName("balanceCoins")] public required double BalanceCoins { get; set; }
     [JsonPropertyName("level")] public required int Level { get; set; }
     [JsonPropertyName("availableTaps")] public required int AvailableTaps { get; set; }
+    [JsonPropertyName("earnPassivePerHour")] public required int EarnPassivePerHour { get; set; }
 }

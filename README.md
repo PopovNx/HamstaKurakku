@@ -39,7 +39,7 @@ You can run the application using Docker. This is the recommended method as it e
 1. **Run with Docker**:
    ```sh
    docker run --rm -e HAMSTER_TOKEN=your_hamster_token \
-   popovnx/bednihomyachok:0.0.5
+   popovnx/bednihomyachok:0.0.6
    ```
 
 ### Configuration

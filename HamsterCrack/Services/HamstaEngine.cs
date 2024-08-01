@@ -10,8 +10,14 @@ public sealed class HamstaEngine(HamstaApi api, ILogger<HamstaEngine> logger)
 
     public async Task TryBuyNewUpgrades(CancellationToken cancellationToken = default)
     {
-        if (_state?.BalanceCoins < 100000)
+        var passiveEarnLimit = (_state?.EarnPassivePerHour ?? 0) * 10 + 10000;
+        if (_state?.BalanceCoins < passiveEarnLimit)
+        {
+            logger.LogInformation(
+                "WAITING FOR {passiveEarnLimit} c to buy upgrades, currently have {BalanceCoins} c ({Percentage}%)",
+                passiveEarnLimit, _state?.BalanceCoins, _state?.BalanceCoins / passiveEarnLimit * 100);
             return;
+        }
 
         var upgrades = await api.GetUpgradesAsync(cancellationToken);
 
